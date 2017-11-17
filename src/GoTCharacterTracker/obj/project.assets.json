@@ -5148,7 +5148,8 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Dapper": "1.50.2",
-          "MySql.Data": "6.10.4"
+          "MySql.Data": "6.10.4",
+          "Newtonsoft.Json": "10.0.3"
         },
         "compile": {
           "bin/placeholder/GoTCharacterTracker.Data.dll": {}
@@ -10302,7 +10303,8 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Dapper": "1.50.2",
-          "MySql.Data": "6.10.4"
+          "MySql.Data": "6.10.4",
+          "Newtonsoft.Json": "10.0.3"
         },
         "compile": {
           "bin/placeholder/GoTCharacterTracker.Data.dll": {}
@@ -15710,7 +15712,8 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Dapper": "1.50.2",
-          "MySql.Data": "6.10.4"
+          "MySql.Data": "6.10.4",
+          "Newtonsoft.Json": "10.0.3"
         },
         "compile": {
           "bin/placeholder/GoTCharacterTracker.Data.dll": {}
@@ -21118,7 +21121,8 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Dapper": "1.50.2",
-          "MySql.Data": "6.10.4"
+          "MySql.Data": "6.10.4",
+          "Newtonsoft.Json": "10.0.3"
         },
         "compile": {
           "bin/placeholder/GoTCharacterTracker.Data.dll": {}
@@ -30457,6 +30461,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Dapper >= 1.50.2",
       "GoTCharacterTracker.Data >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.3",
       "Microsoft.NETCore.App >= 2.0.0",
@@ -30467,19 +30472,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/weisbeck/.nuget/packages/": {}
+    "/Users/jweisbeck/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
+      "projectUniqueName": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
       "projectName": "GoTCharacterTracker",
-      "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
-      "packagesPath": "/Users/weisbeck/.nuget/packages/",
-      "outputPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj",
+      "projectPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
+      "packagesPath": "/Users/jweisbeck/.nuget/packages/",
+      "outputPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/weisbeck/.config/NuGet/NuGet.Config"
+        "/Users/jweisbeck/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -30490,8 +30495,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj": {
-              "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj"
+            "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj": {
+              "projectPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj"
             }
           }
         }
@@ -30530,6 +30535,10 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.3"
+          },
+          "Dapper": {
+            "target": "Package",
+            "version": "1.50.2"
           }
         },
         "imports": [

@@ -4,13 +4,10 @@ using System.Linq;
 
 namespace GoTCharacterTracker.Data.DTO.Characters
 {
-    public class CharacterDTO
+    public class HouseDTO
     {
         public int? Id { get; set; }
         public string Name { get; set; }
-        public string Surname { get; set; }
-        public bool IsAlive { get; set; }
-        public string HouseName { get; set; }
         public string HouseWords { get; set; }
     }
 }

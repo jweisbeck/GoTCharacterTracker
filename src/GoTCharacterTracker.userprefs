@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/Controllers/CharactersController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker.Data/Managers/CharacterManager.cs">
     <Files>
-      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="2" Column="19" />
+      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="49" Column="42" />
       <File FileName="GoTCharacterTracker.Data/appsettings.json" Line="15" Column="29" />
-      <File FileName="GoTCharacterTracker.Data/DTO/Characters/CharacterDTO.cs" Line="13" Column="29" />
-      <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="23" Column="46" />
+      <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="28" Column="9" />
+      <File FileName="GoTCharacterTracker.Data/DTO/Family/HouseDTO.cs" Line="11" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GoTCharacterTracker PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/Managers/CharacterManager.cs" relfile="GoTCharacterTracker.Data/Managers/CharacterManager.cs" line="52" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

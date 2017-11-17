@@ -35,3 +35,16 @@
 /Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.AssemblyInfo.cs
 /Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.dll
 /Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.pdb
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.deps.json
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.runtimeconfig.json
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.runtimeconfig.dev.json
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.dll
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.pdb
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.Data.dll
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/bin/Debug/netcoreapp2.0/GoTCharacterTracker.Data.pdb
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.csprojResolveAssemblyReference.cache
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.csproj.CoreCompileInputs.cache
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.AssemblyInfoInputs.cache
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.AssemblyInfo.cs
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.dll
+/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.pdb

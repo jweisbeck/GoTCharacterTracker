@@ -8,7 +8,7 @@ using GoTCharacterTracker.Data.DTO.Characters;
 
 namespace GoTCharacterTracker.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/GoT/[controller]")]
     public class CharactersController : Controller
     {
 
@@ -28,9 +28,9 @@ namespace GoTCharacterTracker.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public CharacterDTO Get(int id)
+        public IEnumerable<CharacterDTO> Get(int id)
         {
-            var characters = m_characterManager.GetByID(1);
+            var characters = m_characterManager.GetAll();
             return characters;
         }
 

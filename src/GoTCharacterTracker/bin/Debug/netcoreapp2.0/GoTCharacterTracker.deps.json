@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "GoTCharacterTracker/1.0.0": {
         "dependencies": {
+          "Dapper": "1.50.2",
           "GoTCharacterTracker.Data": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.3",
           "Microsoft.NETCore.App": "2.0.0",
@@ -4081,7 +4082,8 @@
       "GoTCharacterTracker.Data/1.0.0": {
         "dependencies": {
           "Dapper": "1.50.2",
-          "MySql.Data": "6.10.4"
+          "MySql.Data": "6.10.4",
+          "Newtonsoft.Json": "10.0.3"
         },
         "runtime": {
           "GoTCharacterTracker.Data.dll": {}

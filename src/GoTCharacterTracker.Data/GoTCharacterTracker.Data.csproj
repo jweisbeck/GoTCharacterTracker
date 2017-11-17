@@ -9,9 +9,11 @@
     <Folder Include="Managers\" />
     <Folder Include="DTO\" />
     <Folder Include="DTO\Characters\" />
+    <Folder Include="DTO\Family\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="6.10.4" />
     <PackageReference Include="Dapper" Version="1.50.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 </Project>
