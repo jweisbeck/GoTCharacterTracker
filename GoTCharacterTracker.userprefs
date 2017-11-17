@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/Controllers/ValuesController.cs">
+    <Files>
+      <File FileName="GoTCharacterTracker/Controllers/ValuesController.cs" Line="10" Column="2" />
+      <File FileName="GoTCharacterTracker.Data/DTO/Characters/CharacterDTO.cs" Line="5" Column="50" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.GoTCharacterTracker PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoTCharacterTracker", "GoTCharacterTracker\GoTCharacterTracker.csproj", "{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoTCharacterTracker.Data", "GoTCharacterTracker.Data\GoTCharacterTracker.Data.csproj", "{2622E9C6-83E3-4A17-B58D-8A72231D9042}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2622E9C6-83E3-4A17-B58D-8A72231D9042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2622E9C6-83E3-4A17-B58D-8A72231D9042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2622E9C6-83E3-4A17-B58D-8A72231D9042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2622E9C6-83E3-4A17-B58D-8A72231D9042}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
