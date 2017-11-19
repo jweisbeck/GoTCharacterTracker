@@ -1,35 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoTCharacterTracker.Data.DTO.Characters;
+using GoTCharacterTracker.Data.Managers;
 
-namespace GoTCharacterTracker.Data.Characters.Services
+
+namespace GoTCharacterTracker.Data.Services
 {
-    public class Character
+    public class CharacterService
     {
         // private members
-        protected  List<CharacterDTO> m_allCharacters;
+        protected List<CharacterDTO> m_allCharacters;
+        private readonly CharacterManager m_characterManager;
 
-        public Character(List<CharacterDTO> names)
+
+        public CharacterService()
         {
-            foreach (var name in names)
-            {
-                m_allCharacters.Add(name);
-            }
+            m_characterManager = new CharacterManager();
         }
 
-
-        public IEnumerable<CharacterDTO> GetCharactersByFamily(string family)
+        public IEnumerable<CharacterDTO> GetAllCharacters() 
         {
-            var characters = m_allCharacters.Where(c => c.Family == family);
-            return characters;
+            return m_characterManager.GetAll();       
         }
 
-
-        public class CharacterDTO
-        {
-            public string Name { get; set; }
-            public bool IsAlive { get; set; }
-            public string Family { get; set; } // make Family an enum & maybe a class later
+        public CharacterDTO GetCharacter(int id) {
+            return m_characterManager.GetByID(id);
         }
+
     }
 }

@@ -10,7 +10,6 @@ namespace GoTCharacterTracker.Data.DTO.Characters
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool IsAlive { get; set; }
-        public string HouseName { get; set; }
-        public string HouseWords { get; set; }
+        public HouseDTO House { get; set; }
     }
 }

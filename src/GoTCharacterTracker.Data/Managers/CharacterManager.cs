@@ -25,13 +25,20 @@ namespace GoTCharacterTracker.Data.Managers
             }
         }
 
-        public void Add(CharacterDTO character) {
+        public void Add(CharacterDTO character, int houseId) {
+            var parameters = new Dictionary<string, object> 
+            {
+                {"name", character.Name },
+                {"surname", character.Surname},
+                {"isAlive", character.IsAlive},
+                {"houseId", houseId}
+            };
+
             using (IDbConnection dbConnection = Connection)
             {
-                string sQuery = "INSERT INTO `character` (name, surname, isAlive, family)"
-                    + " VALUES(@name, @surname, @isAlive, @family);";
+                string sql = @"INSERT INTO people (name, surname, isAlive, houseId) VALUES(@name, @surname, @isAlive, @family);";
                 dbConnection.Open();
-                dbConnection.Execute(sQuery, character);
+                dbConnection.Execute(sql, character);
             }
         }
 
@@ -40,28 +47,41 @@ namespace GoTCharacterTracker.Data.Managers
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                var sql = @"SELECT p.id Id,    
-                                   p.name Name,
-                                   p.surname Surname,
-                                   p.isAlive IsAlive,
-                                   h.name HouseName,
-                                   h.houseWords HouseWords
-                            FROM person p
-                            LEFT OUTER JOIN house h ON p.houseId = h.id;";
+                var sql = @"SELECT *
+                            FROM people p
+                            LEFT OUTER JOIN houses h ON p.houseId = h.id;";
                 
-                var results = dbConnection.Query<CharacterDTO>(sql);
+                var results = dbConnection.Query<CharacterDTO, HouseDTO, CharacterDTO>(sql, (character, house) => {
+                    character.House = house; return character; 
+                }, splitOn: "houseId");
+                
                 return results;
             }
         }
 
         public CharacterDTO GetByID(int id)
         {
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"@id", id }
+            };
+
             using (IDbConnection dbConnection = Connection)
             {
-                string sQuery = "SELECT * FROM character"
-                               + " WHERE id = @id";
+                string sql = @"SELECT *
+                            FROM people p
+                            LEFT OUTER JOIN houses h ON p.houseId = h.id
+                            WHERE p.id = @Id";
+
                 dbConnection.Open();
-                return dbConnection.Query<CharacterDTO>(sQuery, new { id = id }).FirstOrDefault();
+
+                var results = dbConnection.Query<CharacterDTO, HouseDTO, CharacterDTO>(sql, (character, house) => {
+                    character.House = house; return character;
+                }, parameters, splitOn: "houseId").FirstOrDefault();
+
+                return results; 
+
             }
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using GoTCharacterTracker.Data.Managers;
+using GoTCharacterTracker.Data.Services;
 using GoTCharacterTracker.Data.DTO.Characters;
 
 namespace GoTCharacterTracker.Controllers
@@ -11,42 +11,35 @@ namespace GoTCharacterTracker.Controllers
     [Route("api/GoT/[controller]")]
     public class CharactersController : Controller
     {
+        private readonly CharacterService m_characterService;
 
-        private readonly CharacterManager m_characterManager;
-
-        public CharactersController(){
-            m_characterManager = new CharacterManager();
+        public CharactersController()
+        {
+            m_characterService = new CharacterService();
         }
 
-        // GET api/values
         [HttpGet]
         public IEnumerable<CharacterDTO> Get()
         {
-             var characters = m_characterManager.GetAll();
-            return characters;
+            return m_characterService.GetAllCharacters();
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public IEnumerable<CharacterDTO> Get(int id)
+        public CharacterDTO Get(int id)
         {
-            var characters = m_characterManager.GetAll();
-            return characters;
+            return m_characterService.GetCharacter(id);
         }
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
