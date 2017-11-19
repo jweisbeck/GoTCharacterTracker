@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS orgs_orgTypes;
+
 CREATE TABLE `orgs_orgTypes` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`organizationId` INT NOT NULL,
