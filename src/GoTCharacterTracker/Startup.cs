@@ -8,7 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using GoTCharacterTracker.Data.Services;
+using GoTCharacterTracker.Data.Managers;
+using GoTCharacterTracker.Data.DTO.Characters;
 
 namespace GoTCharacterTracker
 {
@@ -25,6 +27,9 @@ namespace GoTCharacterTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<ICharacterService, CharacterService>();
+            services.AddTransient<ICharacterManager, CharacterManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

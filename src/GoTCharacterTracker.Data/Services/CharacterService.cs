@@ -7,16 +7,16 @@ using GoTCharacterTracker.Data.Managers;
 
 namespace GoTCharacterTracker.Data.Services
 {
-    public class CharacterService
+    public class CharacterService: ICharacterService
     {
         // private members
         protected List<CharacterDTO> m_allCharacters;
-        private readonly CharacterManager m_characterManager;
+        private readonly ICharacterManager m_characterManager;
 
 
-        public CharacterService()
+        public CharacterService(ICharacterManager characterManager)
         {
-            m_characterManager = new CharacterManager();
+            m_characterManager = characterManager;
         }
 
         public IEnumerable<CharacterDTO> GetAllCharacters() 

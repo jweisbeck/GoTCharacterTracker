@@ -4,10 +4,11 @@ using System.Linq;
 using Dapper;
 using MySql.Data.MySqlClient;
 using GoTCharacterTracker.Data.DTO.Characters;
+using GoTCharacterTracker.Data.Managers;
 
 namespace GoTCharacterTracker.Data.Managers
 {
-    public class CharacterManager
+    public class CharacterManager: ICharacterManager
     {
         private string m_connectionString; 
 
@@ -38,7 +39,7 @@ namespace GoTCharacterTracker.Data.Managers
             {
                 string sql = @"INSERT INTO people (name, surname, isAlive, houseId) VALUES(@name, @surname, @isAlive, @family);";
                 dbConnection.Open();
-                dbConnection.Execute(sql, character);
+                dbConnection.Execute(sql, parameters);
             }
         }
 

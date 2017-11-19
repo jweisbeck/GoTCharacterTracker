@@ -9,7 +9,7 @@
       "DEBUG",
       "NETCOREAPP2_0"
     ],
-    "languageVersion": "",
+    "languageVersion": "7",
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,

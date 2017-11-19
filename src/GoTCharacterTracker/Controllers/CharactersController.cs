@@ -11,11 +11,11 @@ namespace GoTCharacterTracker.Controllers
     [Route("api/GoT/[controller]")]
     public class CharactersController : Controller
     {
-        private readonly CharacterService m_characterService;
+        private readonly ICharacterService m_characterService;
 
-        public CharactersController()
+        public CharactersController(ICharacterService characterService)
         {
-            m_characterService = new CharacterService();
+             m_characterService = characterService;
         }
 
         [HttpGet]

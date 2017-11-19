@@ -7216,19 +7216,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/jweisbeck/.nuget/packages/": {}
+    "/Users/weisbeck/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj",
+      "projectUniqueName": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj",
       "projectName": "GoTCharacterTracker.Data",
-      "projectPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj",
-      "packagesPath": "/Users/jweisbeck/.nuget/packages/",
-      "outputPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/obj",
+      "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj",
+      "packagesPath": "/Users/weisbeck/.nuget/packages/",
+      "outputPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/obj",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jweisbeck/.config/NuGet/NuGet.Config"
+        "/Users/weisbeck/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

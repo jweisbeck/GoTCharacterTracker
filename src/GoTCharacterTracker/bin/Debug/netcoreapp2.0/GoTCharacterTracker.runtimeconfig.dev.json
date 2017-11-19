@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/jweisbeck/.dotnet/store/|arch|/|tfm|",
-      "/Users/jweisbeck/.nuget/packages"
+      "/Users/weisbeck/.dotnet/store/|arch|/|tfm|",
+      "/Users/weisbeck/.nuget/packages"
     ]
   }
 }
