@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using GoTCharacterTracker.Data.Services;
 using GoTCharacterTracker.Data.Managers;
-using GoTCharacterTracker.Data.DTO.Characters;
 
 namespace GoTCharacterTracker
 {
@@ -38,6 +37,7 @@ namespace GoTCharacterTracker
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
 
             app.UseMvc();

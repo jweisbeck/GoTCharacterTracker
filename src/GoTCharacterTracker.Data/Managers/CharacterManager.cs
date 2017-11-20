@@ -26,20 +26,20 @@ namespace GoTCharacterTracker.Data.Managers
             }
         }
 
-        public void Add(CharacterDTO character, int houseId) {
-            var parameters = new Dictionary<string, object> 
-            {
-                {"name", character.Name },
-                {"surname", character.Surname},
-                {"isAlive", character.IsAlive},
-                {"houseId", houseId}
-            };
+        public int Add(NewCharacterDTO dto) {
+            //var parameters = new Dictionary<string, object> 
+            //{
+            //    {"name", character.Name },
+            //    {"surname", character.Surname},
+            //    {"isAlive", character.IsAlive},
+            //    {"houseId", houseId}
+            //};
 
             using (IDbConnection dbConnection = Connection)
             {
-                string sql = @"INSERT INTO people (name, surname, isAlive, houseId) VALUES(@name, @surname, @isAlive, @family);";
+                string sql = @"INSERT INTO people (name, surname, isAlive, houseId) VALUES(@name, @surname, @isAlive, @houseId);";
                 dbConnection.Open();
-                dbConnection.Execute(sql, parameters);
+                return dbConnection.Execute(sql, dto);
             }
         }
 

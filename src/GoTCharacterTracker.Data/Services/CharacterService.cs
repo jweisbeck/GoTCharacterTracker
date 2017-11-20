@@ -28,5 +28,10 @@ namespace GoTCharacterTracker.Data.Services
             return m_characterManager.GetByID(id);
         }
 
+        public int Add(NewCharacterDTO dto)
+        {
+            return m_characterManager.Add(dto);
+        }
+
     }
 }

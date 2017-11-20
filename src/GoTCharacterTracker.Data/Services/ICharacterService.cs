@@ -9,6 +9,6 @@ namespace GoTCharacterTracker.Data.Services
     {
         IEnumerable<CharacterDTO> GetAllCharacters();
         CharacterDTO GetCharacter(int id);
-
+        int Add(NewCharacterDTO dto);
     }
 }

@@ -31,8 +31,9 @@ namespace GoTCharacterTracker.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]string value)
+        public int Post([FromBody]NewCharacterDTO dto)
         {
+            return m_characterService.Add(dto);
         }
 
         [HttpPut("{id}")]

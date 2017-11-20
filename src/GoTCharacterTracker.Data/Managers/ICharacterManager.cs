@@ -6,7 +6,7 @@ namespace GoTCharacterTracker.Data.Managers
 {
     public interface ICharacterManager
     {
-        void Add(CharacterDTO character, int houseId);
+        int Add(NewCharacterDTO character);
         IEnumerable<CharacterDTO> GetAll();
         CharacterDTO GetByID(int id);
 
