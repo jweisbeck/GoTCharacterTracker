@@ -15,9 +15,29 @@ namespace GoTCharacterTracker
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile("azurekeyvault.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            var config = builder.Build();
+
+            builder.AddAzureKeyVault(
+                $"https://{config["Vault"]}.vault.azure.net/",
+                config["ClientId"],
+                config["ClientSecret"]
+            );
+
+            Configuration = builder.Build();
+
+            //example of how to read value
+            var localhostDbPassword = Configuration["localhostDbPassword"];
+
         }
 
         public IConfiguration Configuration { get; }
@@ -37,7 +57,6 @@ namespace GoTCharacterTracker
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
             }
 
             app.UseMvc();

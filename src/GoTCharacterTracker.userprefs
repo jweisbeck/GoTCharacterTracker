@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/Startup.cs">
     <Files>
       <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="33" Column="19" />
       <File FileName="GoTCharacterTracker.Data/Services/CharacterService.cs" Line="28" Column="51" />
-      <File FileName="GoTCharacterTracker/Startup.cs" Line="20" Column="10" />
       <File FileName="GoTCharacterTracker.Data/DTO/Characters/NewCharacterDTO.cs" Line="15" Column="1" />
       <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="49" Column="14" />
-      <File FileName="GoTCharacterTracker/appsettings.json" Line="13" Column="6" />
+      <File FileName="GoTCharacterTracker/appsettings.json" Line="8" Column="8" />
+      <File FileName="GoTCharacterTracker/Program.cs" Line="37" Column="13" />
+      <File FileName="GoTCharacterTracker/Startup.cs" Line="22" Column="38" />
+      <File FileName="GoTCharacterTracker/appsettings.Development.json" Line="10" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GoTCharacterTracker PreferredExecutionTarget="MonoDevelop.Default" />
