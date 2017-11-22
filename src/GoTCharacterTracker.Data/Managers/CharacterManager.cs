@@ -6,40 +6,23 @@ using MySql.Data.MySqlClient;
 using GoTCharacterTracker.Data.DTO.Characters;
 using System;
 using Microsoft.Extensions.Configuration;
+using GoTCharacterTracker.Data.Repository;
 
 namespace GoTCharacterTracker.Data.Managers
 {
     public class CharacterManager: ICharacterManager
     {
-        private string m_connectionString;
-        private readonly IConfiguration m_config;
+        private IDbConnection m_connection;
 
 
-        public CharacterManager(IConfiguration config)
+        public CharacterManager(IDbContext dbContext)
         {
-            m_config = config;
-            var pwd = m_config["localhostDbPassword"];
-            m_connectionString = $"server=localhost;port=3306;database=gotCharacterTracker;user=root;password={pwd}";
-        }
-
-        public IDbConnection Connection
-        {
-            get
-            {
-                return new MySqlConnection(m_connectionString);
-            }
+            m_connection = dbContext.GetConnection();
         }
 
         public int Add(NewCharacterDTO dto) {
-            //var parameters = new Dictionary<string, object> 
-            //{
-            //    {"name", character.Name },
-            //    {"surname", character.Surname},
-            //    {"isAlive", character.IsAlive},
-            //    {"houseId", houseId}
-            //};
 
-            using (IDbConnection dbConnection = Connection)
+            using (IDbConnection dbConnection = m_connection)
             {
                 string sql = @"INSERT INTO people (name, surname, isAlive, houseId) VALUES(@name, @surname, @isAlive, @houseId);";
                 dbConnection.Open();
@@ -49,7 +32,7 @@ namespace GoTCharacterTracker.Data.Managers
 
         public IEnumerable<CharacterDTO> GetAll()
         {
-            using (IDbConnection dbConnection = Connection)
+            using (IDbConnection dbConnection = m_connection)
             {
                 dbConnection.Open();
                 var sql = @"SELECT *
@@ -72,7 +55,7 @@ namespace GoTCharacterTracker.Data.Managers
                 {"@id", id }
             };
 
-            using (IDbConnection dbConnection = Connection)
+            using (IDbConnection dbConnection = m_connection)
             {
                 string sql = @"SELECT *
                             FROM people p

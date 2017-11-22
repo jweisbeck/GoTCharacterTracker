@@ -1,20 +1,21 @@
 ﻿<Properties StartupConfiguration="{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker.Data/Repository/DbContext.cs">
     <Files>
       <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="17" Column="71" />
       <File FileName="GoTCharacterTracker.Data/Services/CharacterService.cs" Line="28" Column="51" />
       <File FileName="GoTCharacterTracker.Data/DTO/Characters/NewCharacterDTO.cs" Line="15" Column="1" />
-      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="20" Column="31" />
-      <File FileName="GoTCharacterTracker/Program.cs" Line="40" Column="47" />
-      <File FileName="GoTCharacterTracker/Startup.cs" Line="42" Column="41" />
-      <File FileName="GoTCharacterTracker/appsettings.json" Line="16" Column="18" />
+      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="16" Column="9" />
+      <File FileName="GoTCharacterTracker/Program.cs" Line="29" Column="9" />
+      <File FileName="GoTCharacterTracker/Startup.cs" Line="32" Column="34" />
+      <File FileName="GoTCharacterTracker.Data/Repository/DbContext.cs" Line="9" Column="39" />
+      <File FileName="GoTCharacterTracker.Data/Repository/EmptyInterface.cs" Line="6" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.GoTCharacterTracker PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GoTCharacterTracker.Api PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

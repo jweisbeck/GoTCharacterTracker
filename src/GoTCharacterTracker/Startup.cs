@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using GoTCharacterTracker.Data.Services;
 using GoTCharacterTracker.Data.Managers;
+using GoTCharacterTracker.Data.Repository;
 
 namespace GoTCharacterTracker
 {
@@ -32,6 +33,7 @@ namespace GoTCharacterTracker
             services.AddTransient<ICharacterService, CharacterService>();
             services.AddTransient<ICharacterManager, CharacterManager>();
             services.AddSingleton<IConfiguration>(m_configuration);  
+            services.AddTransient<IDbContext, DbContext>();  
 
 
         }
