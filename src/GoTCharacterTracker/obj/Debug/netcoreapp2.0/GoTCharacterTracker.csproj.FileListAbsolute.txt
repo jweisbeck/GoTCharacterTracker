@@ -49,3 +49,4 @@
 /Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.dll
 /Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/GoTCharacterTracker.pdb
 /Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs

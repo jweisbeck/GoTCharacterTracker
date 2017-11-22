@@ -30,16 +30,17 @@ namespace GoTCharacterTracker
         static void ConfigConfiguration(WebHostBuilderContext webHostBuilderContext, IConfigurationBuilder configurationBuilder)
         {
             configurationBuilder.SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
 
             var config = configurationBuilder.Build();
 
             configurationBuilder.AddAzureKeyVault(
-                $"https://{config["vault"]}.vault.azure.net/",
-                config["ClientId"],
-                config["ClientSecret"]
+                $"https://{config["AzureVault:Name"]}.vault.azure.net/",
+                config["AzureVault:ClientId"],
+                config["AzureVault:ClientSecret"]
             );
+
         }
     }
 }

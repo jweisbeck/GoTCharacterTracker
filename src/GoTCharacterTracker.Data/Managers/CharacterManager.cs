@@ -4,18 +4,22 @@ using System.Linq;
 using Dapper;
 using MySql.Data.MySqlClient;
 using GoTCharacterTracker.Data.DTO.Characters;
-using GoTCharacterTracker.Data.Managers;
+using System;
+using Microsoft.Extensions.Configuration;
 
 namespace GoTCharacterTracker.Data.Managers
 {
     public class CharacterManager: ICharacterManager
     {
-        private string m_connectionString; 
+        private string m_connectionString;
+        private readonly IConfiguration m_config;
 
-        public CharacterManager()
+
+        public CharacterManager(IConfiguration config)
         {
-            // only use for localhost
-            m_connectionString = @"server=localhost;port=3306;database=gotCharacterTracker;user=root;password=";
+            m_config = config;
+            var pwd = m_config["localhostDbPassword"];
+            m_connectionString = $"server=localhost;port=3306;database=gotCharacterTracker;user=root;password={pwd}";
         }
 
         public IDbConnection Connection

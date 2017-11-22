@@ -30464,7 +30464,6 @@
       "Dapper >= 1.50.2",
       "GoTCharacterTracker.Data >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.3",
-      "Microsoft.Azure.KeyVault >= 2.3.2",
       "Microsoft.Extensions.Configuration.UserSecrets >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Moq >= 4.7.145",
@@ -30474,19 +30473,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/jweisbeck/.nuget/packages/": {}
+    "/Users/weisbeck/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
+      "projectUniqueName": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
       "projectName": "GoTCharacterTracker",
-      "projectPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
-      "packagesPath": "/Users/jweisbeck/.nuget/packages/",
-      "outputPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj",
+      "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/GoTCharacterTracker.csproj",
+      "packagesPath": "/Users/weisbeck/.nuget/packages/",
+      "outputPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/obj",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jweisbeck/.config/NuGet/NuGet.Config"
+        "/Users/weisbeck/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -30497,8 +30496,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj": {
-              "projectPath": "/Users/jweisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj"
+            "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj": {
+              "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Data/GoTCharacterTracker.Data.csproj"
             }
           }
         }
@@ -30515,7 +30514,7 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0",
+            "version": "2.0",
             "autoReferenced": true
           },
           "Newtonsoft.Json": {
@@ -30541,10 +30540,6 @@
           "Dapper": {
             "target": "Package",
             "version": "1.50.2"
-          },
-          "Microsoft.Azure.KeyVault": {
-            "target": "Package",
-            "version": "2.3.2"
           },
           "Microsoft.Extensions.Configuration.UserSecrets": {
             "target": "Package",

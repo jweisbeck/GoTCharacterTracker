@@ -15,39 +15,39 @@ namespace GoTCharacterTracker
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+
+        public Startup(IConfiguration configuration)
         {
 
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddJsonFile("azurekeyvault.json", optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables();
+            //var builder = new ConfigurationBuilder()
+            //    .SetBasePath(env.ContentRootPath)
+            //    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            //    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+            //    .AddEnvironmentVariables();
 
-            var config = builder.Build();
+            //var config = builder.Build();
 
-            builder.AddAzureKeyVault(
-                $"https://{config["Vault"]}.vault.azure.net/",
-                config["ClientId"],
-                config["ClientSecret"]
-            );
+            //builder.AddAzureKeyVault(
+            //    $"https://{config["AzureVault:Name"]}.vault.azure.net/",
+            //    config["AzureVault:ClientId"],
+            //    config["AzureVault:ClientSecret"]
+            //);
 
-            Configuration = builder.Build();
-
-            //example of how to read value
-            var localhostDbPassword = Configuration["localhostDbPassword"];
-
+            m_configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration m_configuration { get; set; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddMvc();
             services.AddTransient<ICharacterService, CharacterService>();
             services.AddTransient<ICharacterManager, CharacterManager>();
+            services.AddSingleton<IConfiguration>(m_configuration);  
+
 
         }
 
