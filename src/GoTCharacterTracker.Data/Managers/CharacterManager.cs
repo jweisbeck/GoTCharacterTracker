@@ -30,6 +30,48 @@ namespace GoTCharacterTracker.Data.Managers
             }
         }
 
+        public int Update(NewCharacterDTO dto, int id)
+        {
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"@id", id },
+                {"@name", dto.Name },
+                {"@surname", dto.Surname},
+                {"@isAlive", dto.IsAlive},
+                {"@houseId", dto.houseId}
+            };
+
+
+            using (IDbConnection dbConnection = m_connection)
+            {
+                string sql = @"UPDATE people SET
+                                    name = @name, 
+                                    surname = @surname, 
+                                    isAlive = @isAlive, 
+                                    houseId = @houseId
+                                WHERE id = @id;";
+                dbConnection.Open();
+                return dbConnection.Execute(sql, parameters);
+            }
+        }
+
+        public int Delete(int id)
+        {
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"@id", id }
+            };
+
+            using (IDbConnection dbConnection = m_connection)
+            {
+                string sql = @"DELETE FROM people WHERE id = @id;";
+                dbConnection.Open();
+                return dbConnection.Execute(sql, parameters);
+            }
+        }
+
         public IEnumerable<CharacterDTO> GetAll()
         {
             using (IDbConnection dbConnection = m_connection)

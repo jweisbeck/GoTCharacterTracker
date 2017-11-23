@@ -20,31 +20,69 @@ namespace GoTCharacterTracker.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CharacterDTO> Get()
+        public IActionResult GetAll()
         {
-            return m_characterService.GetAllCharacters();
+            var characters = m_characterService.GetAllCharacters();
+
+            return new ObjectResult(characters);
         }
 
         [HttpGet("{id}")]
-        public CharacterDTO Get(int id)
+        public IActionResult Get(int id)
         {
-            return m_characterService.GetCharacter(id);
+
+            var character = m_characterService.GetCharacter(id);
+
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            return new ObjectResult(character);
         }
 
         [HttpPost]
-        public int Post([FromBody]NewCharacterDTO dto)
+        public IActionResult Post([FromBody]NewCharacterDTO dto)
         {
-            return m_characterService.Add(dto);
+            if(dto == null) {
+                return BadRequest();
+            }
+            var added = m_characterService.Add(dto);
+
+            return Ok();
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Update(int id, [FromBody] NewCharacterDTO dto)
         {
+
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+
+            var rows = m_characterService.Update(dto, id);
+
+            if(rows == 0) {
+                return NotFound();
+            }
+
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            
+            var rows = m_characterService.Delete(id);
+
+            if (rows == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+
         }
     }
 }

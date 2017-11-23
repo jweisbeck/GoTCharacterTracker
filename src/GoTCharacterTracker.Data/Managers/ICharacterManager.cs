@@ -9,6 +9,9 @@ namespace GoTCharacterTracker.Data.Managers
         int Add(NewCharacterDTO character);
         IEnumerable<CharacterDTO> GetAll();
         CharacterDTO GetByID(int id);
+        int Delete(int id);
+        int Update(NewCharacterDTO dto, int id);
+
 
     }
 }

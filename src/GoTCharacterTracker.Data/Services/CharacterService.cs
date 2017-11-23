@@ -33,5 +33,15 @@ namespace GoTCharacterTracker.Data.Services
             return m_characterManager.Add(dto);
         }
 
+        public int Delete(int id)
+        {
+            return m_characterManager.Delete(id);
+        }
+
+        public int Update(NewCharacterDTO dto, int id)
+        {
+            return m_characterManager.Update(dto, id);
+        }
+
     }
 }

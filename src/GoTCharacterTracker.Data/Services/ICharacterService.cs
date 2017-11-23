@@ -10,5 +10,8 @@ namespace GoTCharacterTracker.Data.Services
         IEnumerable<CharacterDTO> GetAllCharacters();
         CharacterDTO GetCharacter(int id);
         int Add(NewCharacterDTO dto);
+        int Delete(int id);
+        int Update(NewCharacterDTO dto, int id);
+
     }
 }
