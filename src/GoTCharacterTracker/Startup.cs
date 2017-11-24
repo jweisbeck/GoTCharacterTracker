@@ -30,6 +30,7 @@ namespace GoTCharacterTracker
         {
 
             services.AddMvc();
+            services.AddMvcCore();
             services.AddTransient<ICharacterService, CharacterService>();
             services.AddTransient<ICharacterManager, CharacterManager>();
             services.AddSingleton<IConfiguration>(m_configuration);  

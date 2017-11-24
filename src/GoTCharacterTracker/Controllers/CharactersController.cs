@@ -7,9 +7,9 @@ using GoTCharacterTracker.Data.Services;
 using GoTCharacterTracker.Data.DTO.Characters;
 
 
-namespace GoTCharacterTracker.Controllers
+namespace GoTCharacterTracker.Api.Controllers
 {
-    [Route("api/GoT/[controller]")]
+    [Route("api/GoT/characters")]
     public class CharactersController : Controller
     {
         private readonly ICharacterService m_characterService;

@@ -1,20 +1,17 @@
 ﻿<Properties StartupConfiguration="{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/Controllers/CharactersController.cs">
     <Files>
-      <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="47" Column="1" />
-      <File FileName="GoTCharacterTracker.Data/Services/CharacterService.cs" Line="42" Column="10" />
-      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="71" Column="60" />
-      <File FileName="GoTCharacterTracker/Program.cs" Line="29" Column="9" />
-      <File FileName="GoTCharacterTracker/Startup.cs" Line="13" Column="43" />
+      <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="9" Column="1" />
+      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="15" Column="30" />
       <File FileName="GoTCharacterTracker.Data/Services/ICharacterService.cs" Line="12" Column="38" />
-      <File FileName="GoTCharacterTracker.Data/Repository/DbContext.cs" Line="12" Column="1" />
+      <File FileName="GoTCharacterTracker.Data/Repository/DbContext.cs" Line="14" Column="1" />
+      <File FileName="GoTCharacterTracker/Controllers/AuthController.cs" Line="12" Column="2" />
+      <File FileName="GoTCharacterTracker/Properties/launchSettings.json" Line="19" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker/Controllers/CharactersController.cs" relfile="GoTCharacterTracker/Controllers/CharactersController.cs" line="46" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.GoTCharacterTracker.Api PreferredExecutionTarget="MonoDevelop.Default" />

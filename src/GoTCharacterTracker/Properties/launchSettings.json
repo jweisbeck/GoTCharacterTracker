@@ -18,7 +18,7 @@
     },
     "GoTCharacterTracker": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "api/GoT/characters",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
