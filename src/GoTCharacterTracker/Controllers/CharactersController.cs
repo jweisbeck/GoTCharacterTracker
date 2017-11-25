@@ -5,10 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GoTCharacterTracker.Data.Services;
 using GoTCharacterTracker.Data.DTO.Characters;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 
 namespace GoTCharacterTracker.Api.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/GoT/characters")]
     public class CharactersController : Controller
     {
@@ -19,6 +22,7 @@ namespace GoTCharacterTracker.Api.Controllers
              m_characterService = characterService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -30,7 +34,6 @@ namespace GoTCharacterTracker.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-
             var character = m_characterService.GetCharacter(id);
 
             if (character == null)
@@ -55,7 +58,6 @@ namespace GoTCharacterTracker.Api.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] NewCharacterDTO dto)
         {
-
             if (dto == null)
             {
                 return BadRequest();
@@ -73,7 +75,6 @@ namespace GoTCharacterTracker.Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            
             var rows = m_characterService.Delete(id);
 
             if (rows == 0)

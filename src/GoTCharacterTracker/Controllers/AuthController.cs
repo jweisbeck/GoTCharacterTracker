@@ -32,6 +32,7 @@ namespace GoTCharacterTracker.Api.Controllers
         [HttpPost]
         public IActionResult RequestToken([FromBody] TokenRequestDTO request)
         {
+            // TODO: Drop in Identity for user management
             if (request.Username == m_user && request.Password == m_pwd)
             {
                 var claims = new[]
@@ -43,8 +44,8 @@ namespace GoTCharacterTracker.Api.Controllers
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken(
-                    issuer: "yourdomain.com",
-                    audience: "yourdomain.com",
+                    issuer: "localhost",
+                    audience: "localhost",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: creds);
@@ -55,7 +56,7 @@ namespace GoTCharacterTracker.Api.Controllers
                 });
             }
 
-            return BadRequest("Could not verify username and password");
+            return BadRequest("Could not verify identity");
         }
 
     }
