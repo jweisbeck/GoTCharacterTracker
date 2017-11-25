@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims; 
+using System.Security.Claims;
+using Microsoft.Extensions.Configuration;
 
-            
 namespace GoTCharacterTracker.Api.Controllers
 {
     [Authorize]
@@ -55,7 +54,6 @@ namespace GoTCharacterTracker.Api.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(token)
                 });
             }
-
             return BadRequest("Could not verify identity");
         }
 

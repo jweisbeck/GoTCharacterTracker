@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GoTCharacterTracker.Data.Services;
 using GoTCharacterTracker.Data.DTO.Characters;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace GoTCharacterTracker.Api.Controllers
 {
