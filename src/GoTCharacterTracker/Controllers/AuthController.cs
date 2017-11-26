@@ -46,7 +46,7 @@ namespace GoTCharacterTracker.Api.Controllers
                     issuer: "localhost",
                     audience: "localhost",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(30),
+                    expires: DateTime.Now.AddMinutes(120),
                     signingCredentials: creds);
 
                 return Ok(new

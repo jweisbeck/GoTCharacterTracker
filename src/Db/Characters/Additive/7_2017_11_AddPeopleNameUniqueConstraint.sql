@@ -1,0 +1,1 @@
+ALTER TABLE `people` ADD UNIQUE `unique_index`(`name`, `surname`);

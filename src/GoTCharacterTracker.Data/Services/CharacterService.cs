@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using GoTCharacterTracker.Data.DTO.Characters;
 using GoTCharacterTracker.Data.Managers;
@@ -30,13 +31,15 @@ namespace GoTCharacterTracker.Data.Services
 
         public int Add(NewCharacterDTO dto)
         {
-            return m_characterManager.Add(dto);
+
+                return m_characterManager.Add(dto);
+   
         }
 
         public int Delete(int id)
         {
             return m_characterManager.Delete(id);
-        }
+        } 
 
         public int Update(NewCharacterDTO dto, int id)
         {

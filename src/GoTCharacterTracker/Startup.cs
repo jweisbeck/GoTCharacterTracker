@@ -17,6 +17,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Diagnostics;
+using Newtonsoft.Json;
+using GoTCharacterTracker.Data.DTO.ExceptionHandlers;
+using System.Net;
 
 namespace GoTCharacterTracker
 {
@@ -65,12 +69,36 @@ namespace GoTCharacterTracker
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+
+
+             app.UseExceptionHandler(options => {
+                 options.Run(
+                 async context =>
+                 {
+                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                     context.Response.ContentType = "application/json";
+                     var ex = context.Features.Get<IExceptionHandlerFeature>();
+                     if (ex != null)
+                     {
+                         var stackTraceError = string.Empty;
+                        if (env.IsDevelopment())
+                         {
+                             stackTraceError = ex.Error.StackTrace;
+                         }
+
+                         var err = JsonConvert.SerializeObject(new ErrorMiddlewareDTO()
+                         {
+                            Message = ex.Error.Message,
+                            Stacktrace = stackTraceError
+                         });
+                         await context.Response.Body.WriteAsync(Encoding.ASCII.GetBytes(err), 0, err.Length).ConfigureAwait(false);
+                     }
+                 });
+            });
 
             app.UseMvc();
+
+
         }
     }
 }

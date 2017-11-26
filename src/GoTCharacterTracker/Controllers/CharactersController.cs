@@ -49,7 +49,11 @@ namespace GoTCharacterTracker.Api.Controllers
             if(dto == null) {
                 return BadRequest();
             }
-            var added = m_characterService.Add(dto);
+            var rows = m_characterService.Add(dto);
+
+            if(rows == 0) {
+                return BadRequest();
+            }
 
             return Ok();
         }
