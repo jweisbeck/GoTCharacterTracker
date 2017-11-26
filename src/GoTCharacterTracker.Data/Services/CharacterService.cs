@@ -11,7 +11,7 @@ namespace GoTCharacterTracker.Data.Services
     public class CharacterService: ICharacterService
     {
         // private members
-        protected List<CharacterDTO> m_allCharacters;
+        protected List<CharacterCardDTO> m_allCharacters;
         private readonly ICharacterManager m_characterManager;
 
 
@@ -20,12 +20,12 @@ namespace GoTCharacterTracker.Data.Services
             m_characterManager = characterManager;
         }
 
-        public IEnumerable<CharacterDTO> GetAllCharacters() 
+        public IEnumerable<CharacterCardDTO> GetAllCharacters() 
         {
             return m_characterManager.GetAll();       
         }
 
-        public CharacterDTO GetCharacter(int id) {
+        public CharacterCardDTO GetCharacter(int id) {
             return m_characterManager.GetByID(id);
         }
 

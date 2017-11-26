@@ -7,8 +7,8 @@ namespace GoTCharacterTracker.Data.Services
 {
     public interface ICharacterService
     {
-        IEnumerable<CharacterDTO> GetAllCharacters();
-        CharacterDTO GetCharacter(int id);
+        IEnumerable<CharacterCardDTO> GetAllCharacters();
+        CharacterCardDTO GetCharacter(int id);
         int Add(NewCharacterDTO dto);
         int Delete(int id);
         int Update(NewCharacterDTO dto, int id);

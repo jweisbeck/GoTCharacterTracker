@@ -12,6 +12,8 @@
     <Folder Include="DTO\Family\" />
     <Folder Include="Repository\" />
     <Folder Include="DTO\ExceptionHandlers\" />
+    <Folder Include="DTO\Organization\" />
+    <Folder Include="DTO\Possesions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="6.10.4" />

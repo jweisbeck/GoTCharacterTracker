@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GoTCharacterTracker.Data.DTO.Characters
+namespace GoTCharacterTracker.Data.DTO.Family
 {
     public class HouseDTO
     {

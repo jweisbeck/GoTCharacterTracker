@@ -30,6 +30,7 @@ namespace GoTCharacterTracker.Api.Controllers
             return new ObjectResult(characters);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
