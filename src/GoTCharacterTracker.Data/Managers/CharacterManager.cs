@@ -83,9 +83,9 @@ namespace GoTCharacterTracker.Data.Managers
 
                 string sql = @"SELECT p.id, p.name, p.surname, p.isAlive, p.houseId as HouseId,
                                       h.id, h.name, h.houseWords, 
-                                      po.id, po.personId, po.organizationId as OrganizationId,
+                                      po.id, po.personId, po.organizationId as id,
                                       org.id, org.name, org.description,
-                                      obj.id as ObjectId, obj.name, obj.personId
+                                      obj.id as id, obj.name, obj.personId
                             FROM people p
                             LEFT OUTER JOIN houses h ON p.houseId = h.id
                             LEFT OUTER JOIN people_orgs po ON p.id = po.personId
@@ -95,10 +95,23 @@ namespace GoTCharacterTracker.Data.Managers
 
                 var results = dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) => {
                     character.House = house;
-                    character.Organizations = org;
-                    character.Objects = obj;
+
+                    character.Organizations = new List<OrganizationDTO>();
+                    if (org != null)
+                    {
+                        character.Organizations.Add(org);
+                    
+                    }  
+
+                    character.Objects = new List<ObjectDTO>();
+                    if (obj != null)
+                    {
+                        character.Objects.Add(obj);
+                    
+                    }   
+
                     return character;
-                }, splitOn: "HouseId, OrganizationId, ObjectId");
+                }, splitOn: "HouseId, id, id");
 
                 return results;
             }
@@ -116,9 +129,9 @@ namespace GoTCharacterTracker.Data.Managers
             {
                 string sql = @"SELECT p.id, p.name, p.surname, p.isAlive, p.houseId as HouseId,
                                       h.id, h.name, h.houseWords, 
-                                      po.id, po.personId, po.organizationId as OrganizationId,
+                                      po.id, po.personId, po.organizationId as id,
                                       org.id, org.name, org.description,
-                                      obj.id as ObjectId, obj.name, obj.personId
+                                      obj.id as id, obj.name, obj.personId
                             FROM people p
                             LEFT OUTER JOIN houses h ON p.houseId = h.id
                             LEFT OUTER JOIN people_orgs po ON p.id = po.personId
@@ -130,14 +143,49 @@ namespace GoTCharacterTracker.Data.Managers
 
                 var results = dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) => {
                     character.House = house;
-                    character.Organizations = org;
-                    character.Objects = obj;
+
+                    character.Organizations = new List<OrganizationDTO>();
+                    if (org != null)
+                    {
+                        character.Organizations.Add(org);
+                    
+                    }  
+
+                    character.Objects = new List<ObjectDTO>();
+                    if (obj != null)
+                    {
+                        character.Objects.Add(obj);
+                    
+                    } 
+
                     return character;
-                }, parameters, splitOn: "HouseId, OrganizationId, ObjectId").FirstOrDefault();
+                }, parameters, splitOn: "HouseId, id, id").FirstOrDefault();
 
                 return results; 
 
             }
+        }
+
+        private CharacterCardDTO MultiMapDTOs(CharacterCardDTO character, HouseDTO house, OrganizationDTO org, ObjectDTO obj)
+        {
+
+            character.House = house;
+
+            character.Organizations.Add(org);
+            if (org != null)
+            {
+                character.Organizations.Add(org);
+
+            }
+
+            character.Objects = new List<ObjectDTO>();
+            if (obj != null)
+            {
+                character.Objects.Add(obj);
+
+            }
+
+            return character;
         }
 
     }

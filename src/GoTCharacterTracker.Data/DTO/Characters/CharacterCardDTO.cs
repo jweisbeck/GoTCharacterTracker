@@ -14,7 +14,7 @@ namespace GoTCharacterTracker.Data.DTO.Characters
         public string Surname { get; set; }
         public bool IsAlive { get; set; }
         public HouseDTO House { get; set; }
-        public OrganizationDTO Organizations { get; set; }
-        public ObjectDTO Objects { get; set; }
+        public List<OrganizationDTO> Organizations { get; set; }
+        public List<ObjectDTO> Objects { get; set; }
     }
 }
