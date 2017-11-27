@@ -87,7 +87,36 @@ namespace GoTCharacterTracker.Api.Controllers
             }
 
             return Ok();
-
         }
+
+        [HttpPost("{personId}/organization/{orgId}")]
+        public IActionResult UpdateOrganizations(int personId, int orgId)
+        {
+
+            var character = m_characterService.AssociateUserToOrganization(personId, orgId);
+
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            return new ObjectResult(character);
+        }
+
+
+        [HttpPut("{personId}/objects/{objectId}")]
+        public IActionResult UpdateObjects(int personId, int objectId)
+        {
+
+            var character = m_characterService.AssignObjectOwnershipToPerson(personId, objectId);
+
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            return new ObjectResult(character);
+        }
+
     }
 }

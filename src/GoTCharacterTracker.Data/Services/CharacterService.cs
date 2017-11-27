@@ -46,5 +46,17 @@ namespace GoTCharacterTracker.Data.Services
             return m_characterManager.Update(dto, id);
         }
 
+        public CharacterCardDTO AssignObjectOwnershipToPerson(int personId, int objectId) 
+        {
+            return m_characterManager.AssignObjectOwnershipToPerson(personId, objectId);
+        }
+
+        public CharacterCardDTO AssociateUserToOrganization(int personId, int organizationId)
+    
+        {
+            return m_characterManager.AssociateUserToOrganization(personId, organizationId);
+        }
+
+
     }
 }

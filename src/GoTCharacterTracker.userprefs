@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{A1F3619F-8B76-4AAC-BDEB-2D44B0932152}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker.Data/Managers/CharacterManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoTCharacterTracker/Controllers/CharactersController.cs">
     <Files>
-      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="138" Column="21" />
-      <File FileName="GoTCharacterTracker.Data/Managers/ICharacterManager.cs" Line="10" Column="46" />
+      <File FileName="GoTCharacterTracker.Data/Managers/CharacterManager.cs" Line="108" Column="14" />
+      <File FileName="GoTCharacterTracker.Data/Managers/ICharacterManager.cs" Line="14" Column="55" />
+      <File FileName="GoTCharacterTracker.Data/Services/ICharacterService.cs" Line="15" Column="53" />
+      <File FileName="GoTCharacterTracker.Data/Services/CharacterService.cs" Line="54" Column="16" />
+      <File FileName="GoTCharacterTracker/Controllers/CharactersController.cs" Line="62" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

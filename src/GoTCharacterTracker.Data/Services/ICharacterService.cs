@@ -12,6 +12,9 @@ namespace GoTCharacterTracker.Data.Services
         int Add(NewCharacterDTO dto);
         int Delete(int id);
         int Update(NewCharacterDTO dto, int id);
+        CharacterCardDTO AssociateUserToOrganization(int personId, int organizationId);
+        CharacterCardDTO AssignObjectOwnershipToPerson(int personId, int objectId);
+
 
     }
 }

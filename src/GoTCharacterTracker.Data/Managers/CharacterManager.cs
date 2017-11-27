@@ -13,7 +13,7 @@ using GoTCharacterTracker.Data.Repository;
 
 namespace GoTCharacterTracker.Data.Managers
 {
-    public class CharacterManager: ICharacterManager
+    public class CharacterManager : ICharacterManager
     {
         private IDbConnection m_connection;
 
@@ -23,7 +23,8 @@ namespace GoTCharacterTracker.Data.Managers
             m_connection = dbContext.GetConnection();
         }
 
-        public int Add(NewCharacterDTO dto) {
+        public int Add(NewCharacterDTO dto)
+        {
 
             using (IDbConnection dbConnection = m_connection)
             {
@@ -76,8 +77,6 @@ namespace GoTCharacterTracker.Data.Managers
         }
 
 
-
-
         public IEnumerable<CharacterCardDTO> GetAll()
         {
             var result = GetCharacters(null);
@@ -86,8 +85,50 @@ namespace GoTCharacterTracker.Data.Managers
 
         public CharacterCardDTO GetByID(int id)
         {
+            
             return GetCharacters(id).FirstOrDefault();
         }
+
+        public CharacterCardDTO AssociateUserToOrganization(int personId, int organizationId) 
+        {
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"@personId", personId },
+                {"@organizationid", organizationId }
+            };
+
+            using (IDbConnection dbConnection = m_connection)
+            {
+                string sql = @"INSERT INTO people_orgs (personId, organizationId) VALUES (@personId, @organizationId);";
+                dbConnection.Open();
+                dbConnection.Execute(sql, parameters);
+            }
+
+            return GetCharacters(personId).FirstOrDefault();
+        }
+
+
+        public CharacterCardDTO AssignObjectOwnershipToPerson(int personId, int objectId)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                {"@personId", personId },
+                {"@objectId", objectId }
+            };
+
+            using (IDbConnection dbConnection = m_connection)
+            {
+                string sql = @"UPDATE objects SET personId = @personId WHERE id = @objectId;";
+                dbConnection.Open();
+                dbConnection.Execute(sql, parameters);
+            }
+
+            return GetCharacters(personId).FirstOrDefault();
+
+        }
+
+#region Private methods
 
         private IEnumerable<CharacterCardDTO> GetCharacters(int? id)
         {
@@ -121,16 +162,19 @@ namespace GoTCharacterTracker.Data.Managers
                 var orgs = new Dictionary<int, OrganizationDTO>();
                 var objs = new Dictionary<int, ObjectDTO>();
 
-                dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) => {
-                    
+                dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) =>
+                {
+
                     CharacterCardDTO charCard;
 
-                    if(!lookup.TryGetValue(character.Id, out charCard)) {
+                    if (!lookup.TryGetValue(character.Id, out charCard))
+                    {
                         charCard = character;
                         lookup.Add(character.Id, charCard);
                     }
 
-                    if (charCard.Organizations == null) {
+                    if (charCard.Organizations == null)
+                    {
                         charCard.Organizations = new List<OrganizationDTO>();
                     }
 
@@ -141,8 +185,9 @@ namespace GoTCharacterTracker.Data.Managers
                         orgs.Add(org.Id, org);
                     }
 
-                    if (charCard.Objects == null) {
-                        charCard.Objects = new List<ObjectDTO>();  
+                    if (charCard.Objects == null)
+                    {
+                        charCard.Objects = new List<ObjectDTO>();
                     }
 
                     // Add any objects 
@@ -158,10 +203,10 @@ namespace GoTCharacterTracker.Data.Managers
                     return charCard;
                 }, parameters, splitOn: "HouseId, id, id").AsQueryable();
 
-                return lookup.Values; 
-
+                return lookup.Values;
             }
         }
 
+#endregion
     }
 }
