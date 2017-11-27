@@ -60,7 +60,7 @@ namespace GoTCharacterTracker.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] NewCharacterDTO dto)
+        public IActionResult Update(int id, [FromBody]NewCharacterDTO dto)
         {
             if (dto == null)
             {

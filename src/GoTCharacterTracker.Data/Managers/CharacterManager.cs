@@ -75,55 +75,26 @@ namespace GoTCharacterTracker.Data.Managers
             }
         }
 
+
+
+
         public IEnumerable<CharacterCardDTO> GetAll()
         {
-            using (IDbConnection dbConnection = m_connection)
-            {
-                dbConnection.Open();
-
-                string sql = @"SELECT p.id, p.name, p.surname, p.isAlive, p.houseId as HouseId,
-                                      h.id, h.name, h.houseWords, 
-                                      po.id, po.personId, po.organizationId as id,
-                                      org.id, org.name, org.description,
-                                      obj.id as id, obj.name, obj.personId
-                            FROM people p
-                            LEFT OUTER JOIN houses h ON p.houseId = h.id
-                            LEFT OUTER JOIN people_orgs po ON p.id = po.personId
-                            LEFT OUTER JOIN organizations org ON org.id = po.organizationId
-                            LEFT OUTER JOIN objects obj ON p.id = obj.personId";
-
-
-                var results = dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) => {
-                    character.House = house;
-
-                    character.Organizations = new List<OrganizationDTO>();
-                    if (org != null)
-                    {
-                        character.Organizations.Add(org);
-                    
-                    }  
-
-                    character.Objects = new List<ObjectDTO>();
-                    if (obj != null)
-                    {
-                        character.Objects.Add(obj);
-                    
-                    }   
-
-                    return character;
-                }, splitOn: "HouseId, id, id");
-
-                return results;
-            }
+            var result = GetCharacters(null);
+            return result;
         }
 
         public CharacterCardDTO GetByID(int id)
         {
+            return GetCharacters(id).FirstOrDefault();
+        }
 
-            var parameters = new Dictionary<string, object>
-            {
-                {"@id", id }
-            };
+        private IEnumerable<CharacterCardDTO> GetCharacters(int? id)
+        {
+
+            var parameters = new Dictionary<string, object>();
+
+            var idCondition = "WHERE p.id = @Id";
 
             using (IDbConnection dbConnection = m_connection)
             {
@@ -136,56 +107,60 @@ namespace GoTCharacterTracker.Data.Managers
                             LEFT OUTER JOIN houses h ON p.houseId = h.id
                             LEFT OUTER JOIN people_orgs po ON p.id = po.personId
                             LEFT OUTER JOIN organizations org ON org.id = po.organizationId
-                            LEFT OUTER JOIN objects obj ON obj.personId = p.Id
-                            WHERE p.id = @Id";
+                            LEFT OUTER JOIN objects obj ON obj.personId = p.Id ";
+
+                if (id != null)
+                {
+                    parameters.Add("@id", id);
+                    sql += idCondition;
+                }
 
                 dbConnection.Open();
 
-                var results = dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) => {
-                    character.House = house;
+                var lookup = new Dictionary<int, CharacterCardDTO>();
+                var orgs = new Dictionary<int, OrganizationDTO>();
+                var objs = new Dictionary<int, ObjectDTO>();
 
-                    character.Organizations = new List<OrganizationDTO>();
-                    if (org != null)
-                    {
-                        character.Organizations.Add(org);
+                dbConnection.Query<CharacterCardDTO, HouseDTO, OrganizationDTO, ObjectDTO, CharacterCardDTO>(sql, (character, house, org, obj) => {
                     
-                    }  
+                    CharacterCardDTO charCard;
 
-                    character.Objects = new List<ObjectDTO>();
-                    if (obj != null)
+                    if(!lookup.TryGetValue(character.Id, out charCard)) {
+                        charCard = character;
+                        lookup.Add(character.Id, charCard);
+                    }
+
+                    if (charCard.Organizations == null) {
+                        charCard.Organizations = new List<OrganizationDTO>();
+                    }
+
+                    // Add any organizations
+                    if (org != null && !orgs.ContainsKey(org.Id))
                     {
-                        character.Objects.Add(obj);
-                    
-                    } 
+                        charCard.Organizations.Add(org);
+                        orgs.Add(org.Id, org);
+                    }
 
-                    return character;
-                }, parameters, splitOn: "HouseId, id, id").FirstOrDefault();
+                    if (charCard.Objects == null) {
+                        charCard.Objects = new List<ObjectDTO>();  
+                    }
 
-                return results; 
+                    // Add any objects 
+                    if (obj != null && !objs.ContainsKey(obj.Id))
+                    {
+                        charCard.Objects.Add(obj);
+                        objs.Add(obj.Id, obj);
+                    }
 
-            }
-        }
+                    // add character House info
+                    charCard.House = house;
 
-        private CharacterCardDTO MultiMapDTOs(CharacterCardDTO character, HouseDTO house, OrganizationDTO org, ObjectDTO obj)
-        {
+                    return charCard;
+                }, parameters, splitOn: "HouseId, id, id").AsQueryable();
 
-            character.House = house;
-
-            character.Organizations.Add(org);
-            if (org != null)
-            {
-                character.Organizations.Add(org);
-
-            }
-
-            character.Objects = new List<ObjectDTO>();
-            if (obj != null)
-            {
-                character.Objects.Add(obj);
+                return lookup.Values; 
 
             }
-
-            return character;
         }
 
     }
