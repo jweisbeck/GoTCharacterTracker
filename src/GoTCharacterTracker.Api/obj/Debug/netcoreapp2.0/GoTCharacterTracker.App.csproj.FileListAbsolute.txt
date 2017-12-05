@@ -1,0 +1,14 @@
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/GoTCharacterTracker.App.csprojResolveAssemblyReference.cache
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/GoTCharacterTracker.App.csproj.CoreCompileInputs.cache
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/GoTCharacterTracker.App.AssemblyInfoInputs.cache
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/GoTCharacterTracker.App.AssemblyInfo.cs
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.App.deps.json
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.App.runtimeconfig.json
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.App.runtimeconfig.dev.json
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.App.dll
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.App.pdb
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.Data.dll
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/bin/Debug/netcoreapp2.0/GoTCharacterTracker.Data.pdb
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/GoTCharacterTracker.App.dll
+/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj/Debug/netcoreapp2.0/GoTCharacterTracker.App.pdb

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoTCharacterTracker.Data", "GoTCharacterTracker.Data\GoTCharacterTracker.Data.csproj", "{2622E9C6-83E3-4A17-B58D-8A72231D9042}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoTCharacterTracker.Api", "GoTCharacterTracker.Api\GoTCharacterTracker.Api.csproj", "{24E4056A-FD9F-47AD-8846-89344EA1F46B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoTCharacterTracker.App", "GoTCharacterTracker.Api\GoTCharacterTracker.App.csproj", "{24E4056A-FD9F-47AD-8846-89344EA1F46B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -21,6 +21,9 @@ using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
 using GoTCharacterTracker.Data.DTO.ExceptionHandlers;
 using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace GoTCharacterTracker
 {
@@ -43,34 +46,38 @@ namespace GoTCharacterTracker
 
             services.AddMvc();
             services.AddMvcCore();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-               .AddJwtBearer(options =>
-               {
-                   options.TokenValidationParameters = new TokenValidationParameters
-                   {
-                       ValidateIssuer = true,
-                       ValidateAudience = true,
-                       ValidateLifetime = true,
-                       ValidateIssuerSigningKey = true,
-                       ValidIssuer = "localhost",
-                       ValidAudience = "localhost",
-                       IssuerSigningKey = new SymmetricSecurityKey(
-                           Encoding.UTF8.GetBytes(m_securityKey))
-                   };
-               });
+            services.AddAuthentication(o =>
+            {
+                o.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                }).AddCookie(options =>
+                {
+                    options.AccessDeniedPath = new PathString("/admin/login/");
+                    options.LoginPath = new PathString("/admin/login/");
+                }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "localhost",
+                        ValidAudience = "localhost",
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(m_securityKey))
+                    };
+            });
+
             services.AddTransient<ICharacterService, CharacterService>();
             services.AddTransient<ICharacterManager, CharacterManager>();
             services.AddSingleton<IConfiguration>(m_configuration);  
             services.AddTransient<IDbContext, DbContext>();  
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
-
              app.UseExceptionHandler(options => {
                  options.Run(
                  async context =>
@@ -96,14 +103,11 @@ namespace GoTCharacterTracker
                  });
             });
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseAuthentication();
 
+            app.UseStaticFiles();
 
+            app.UseMvc();
         }
     }
 }

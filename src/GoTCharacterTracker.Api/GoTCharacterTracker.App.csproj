@@ -14,21 +14,19 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <StartAction>Project</StartAction>
-    <EnvironmentVariables>
-      <Variable name="ASPNETCORE_ENVIRONMENT" value="Development" />
-      <Variable name="ASPNETCORE_ENVIRONMENT" value="Development" />
-    </EnvironmentVariables>
     <LaunchBrowser>true</LaunchBrowser>
     <ApplicationURL>http://localhost:5000</ApplicationURL>
     <LaunchUrl>http://localhost:5000</LaunchUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\" />
     <Folder Include="Controllers\Api\" />
     <Folder Include="Controllers\Mvc\" />
     <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="wwwroot\" />
+    <Folder Include="Views\Public\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -30478,9 +30478,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/GoTCharacterTracker.Api.csproj",
-      "projectName": "GoTCharacterTracker.Api",
-      "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/GoTCharacterTracker.Api.csproj",
+      "projectUniqueName": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/GoTCharacterTracker.App.csproj",
+      "projectName": "GoTCharacterTracker.App",
+      "projectPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/GoTCharacterTracker.App.csproj",
       "packagesPath": "/Users/weisbeck/.nuget/packages/",
       "outputPath": "/Users/weisbeck/Projects/GoTCharacterTracker/src/GoTCharacterTracker.Api/obj",
       "projectStyle": "PackageReference",

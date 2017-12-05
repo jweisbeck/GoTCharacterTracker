@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace GoTCharacterTracker.Api.Controllers
 {
-    [Authorize]
+    [Authorize] 
     [Route("api/auth")]
     public class AuthController : Controller
     {
